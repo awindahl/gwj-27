@@ -32,7 +32,8 @@ func _stamp():
 		if stamped_doc.attributes.find("stamped", 0):
 			stamped_doc.attributes.append("stamped")
 		var new_stamp = stamp.instance()
-		stamped_doc.add_child(new_stamp)
+		new_stamp.scale *= 10
+		stamped_doc.get_node("Sprite").add_child(new_stamp)
 		
 		new_stamp.global_position = $StampArea.global_position
 

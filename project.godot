@@ -22,8 +22,11 @@ config/icon="res://icon.png"
 
 window/size/width=1280
 window/size/height=720
+window/size/resizable=false
+window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

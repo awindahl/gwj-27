@@ -15,32 +15,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.000600308, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 330, 133 ), Vector2( 330, 133 ), Vector2( 1200, 133 ) ]
+"values": [ Vector2( 0, 200 ), Vector2( 800, 200 ) ]
 }
 
 [node name="StampBar" type="Node2D"]
-position = Vector2( 330, 133 )
+position = Vector2( 0, 200 )
 script = ExtResource( 5 )
 
 [node name="GoodStamp" parent="." instance=ExtResource( 1 )]
-position = Vector2( -740.592, 23 )
+position = Vector2( -410.592, 143 )
 
 [node name="BadStamp" parent="." instance=ExtResource( 2 )]
-position = Vector2( -385.696, 23 )
+position = Vector2( -60.696, 143 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -736, 0 )
+position = Vector2( -406, 128 )
 scale = Vector2( 0.334, 0.334 )
 texture = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = -339.0
-margin_top = -42.0
-margin_right = -228.0
-margin_bottom = 24.0
+margin_left = -9.0
+margin_top = 86.0
+margin_right = 102.0
+margin_bottom = 152.0
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
