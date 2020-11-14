@@ -1,44 +1,51 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Paper.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Papers, Please.gd" type="Script" id=3]
+[ext_resource path="res://Desk.png" type="Texture" id=4]
+[ext_resource path="res://Stationary MKIII.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 147.94, 144.942 )
+extents = Vector2( 249.925, 357.028 )
 
 [node name="TestBench" type="Node2D"]
+
+[node name="Desk" type="Sprite" parent="."]
+position = Vector2( 1115.64, 732.981 )
+scale = Vector2( 0.636434, 0.636434 )
+texture = ExtResource( 4 )
 
 [node name="Papers, Please" type="Node2D" parent="."]
 script = ExtResource( 3 )
 
 [node name="YSort" type="YSort" parent="Papers, Please"]
 
-[node name="Paper1" type="Area2D" parent="Papers, Please/YSort"]
-position = Vector2( 564, 304 )
+[node name="Paper2" type="Area2D" parent="Papers, Please/YSort"]
+position = Vector2( 372.86, 433.739 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Papers, Please/YSort/Paper1"]
-modulate = Color( 1, 0, 0, 1 )
-scale = Vector2( 4.79532, 4.79532 )
-texture = ExtResource( 2 )
+[node name="Sprite2" type="Sprite" parent="Papers, Please/YSort/Paper2"]
+position = Vector2( -0.637329, 0.15686 )
+scale = Vector2( 0.201771, 0.201771 )
+texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Papers, Please/YSort/Paper1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Papers, Please/YSort/Paper2"]
 shape = SubResource( 1 )
 
-[node name="Paper2" type="Area2D" parent="Papers, Please/YSort"]
-position = Vector2( 668, 352 )
+[node name="Paper3" type="Area2D" parent="Papers, Please/YSort"]
+position = Vector2( 805.121, 514.258 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Papers, Please/YSort/Paper2"]
-scale = Vector2( 4.79532, 4.79532 )
-texture = ExtResource( 2 )
+[node name="Sprite2" type="Sprite" parent="Papers, Please/YSort/Paper3"]
+position = Vector2( -0.637329, 0.15686 )
+scale = Vector2( 0.201771, 0.201771 )
+texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Papers, Please/YSort/Paper2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Papers, Please/YSort/Paper3"]
 shape = SubResource( 1 )
