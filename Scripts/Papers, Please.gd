@@ -22,7 +22,7 @@ func select_piece() -> Area2D:
 	var pos: Vector2
 	var intersects: Array
 	var top_piece: Area2D
-	var top_z: = -1
+	var top_z: = -1000
 
 	pos = get_viewport().get_mouse_position()
 	intersects = get_world_2d().get_direct_space_state().intersect_point(pos, 32, [], 0x7FFFFFFF, true, true)

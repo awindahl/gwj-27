@@ -15,17 +15,21 @@ script = ExtResource( 3 )
 [node name="YSort" type="YSort" parent="Papers, Please"]
 
 [node name="Paper1" parent="Papers, Please/YSort" instance=ExtResource( 2 )]
+position = Vector2( 702.243, 324.693 )
 
 [node name="Paper2" parent="Papers, Please/YSort" instance=ExtResource( 2 )]
-position = Vector2( 433.833, 232.567 )
+position = Vector2( 860.813, 379.438 )
 
 [node name="Paper3" parent="Papers, Please/YSort" instance=ExtResource( 2 )]
-position = Vector2( 843.383, 308.762 )
+position = Vector2( 1074.13, 458.723 )
 
 [node name="Background" type="Sprite" parent="Papers, Please"]
 scale = Vector2( 0.334, 0.334 )
 z_index = -11
 texture = ExtResource( 4 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StampBar" parent="." instance=ExtResource( 1 )]
