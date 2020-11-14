@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Stationary MKII.png-d26a7ff54f3d477888bdf8d708a96eb0.stex"
+path="res://.import/Desk16x9.png-cfd90f58a0e4a3ffa4d63353705597eb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stationary MKII.png"
-dest_files=[ "res://.import/Stationary MKII.png-d26a7ff54f3d477888bdf8d708a96eb0.stex" ]
+source_file="res://Assets/Desk16x9.png"
+dest_files=[ "res://.import/Desk16x9.png-cfd90f58a0e4a3ffa4d63353705597eb.stex" ]
 
 [params]
 

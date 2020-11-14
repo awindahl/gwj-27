@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Stationary MKIII.png-bbc8c44790e72b2ec2af7227983dda1b.stex"
+path="res://.import/StampBar.png-9fab26737ddba54026ebddf33441d909.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stationary MKIII.png"
-dest_files=[ "res://.import/Stationary MKIII.png-bbc8c44790e72b2ec2af7227983dda1b.stex" ]
+source_file="res://Assets/StampBar.png"
+dest_files=[ "res://.import/StampBar.png-9fab26737ddba54026ebddf33441d909.stex" ]
 
 [params]
 

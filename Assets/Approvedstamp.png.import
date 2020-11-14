@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Desk.png-77f3a8a8a940046e931b3353a845c613.stex"
+path="res://.import/Approvedstamp.png-98c6ff3689f9666eda8cca6a24c9f8df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Desk.png"
-dest_files=[ "res://.import/Desk.png-77f3a8a8a940046e931b3353a845c613.stex" ]
+source_file="res://Assets/Approvedstamp.png"
+dest_files=[ "res://.import/Approvedstamp.png-98c6ff3689f9666eda8cca6a24c9f8df.stex" ]
 
 [params]
 

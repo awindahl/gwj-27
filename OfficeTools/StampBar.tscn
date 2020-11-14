@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://OfficeTools/GoodStamp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OfficeTools/BadStamp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/StampBar.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/StampBar.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Slide"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.000600308, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 330, 133 ), Vector2( 330, 133 ), Vector2( 1200, 133 ) ]
+}
+
+[node name="StampBar" type="Node2D"]
+position = Vector2( 330, 133 )
+script = ExtResource( 5 )
+
+[node name="GoodStamp" parent="." instance=ExtResource( 1 )]
+position = Vector2( -740.592, 23 )
+
+[node name="BadStamp" parent="." instance=ExtResource( 2 )]
+position = Vector2( -385.696, 23 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -736, 0 )
+scale = Vector2( 0.334, 0.334 )
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = -339.0
+margin_top = -42.0
+margin_right = -228.0
+margin_bottom = 24.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Slide = SubResource( 1 )
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

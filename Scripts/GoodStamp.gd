@@ -1,32 +1,30 @@
 extends Node2D
 
-var selected = false
-
-func _on_PickupArea_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			if event.button_index == BUTTON_LEFT:
-				selected = true
-				get_parent().is_holding = true
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			if event.button_index == BUTTON_LEFT:
-				if selected:
-					$AnimationPlayer.play("Stamp")
-
-func _process(delta):
-	if selected:
-		position = get_global_mouse_position()
-		
-
-	if Input.is_action_just_pressed("ui_accept"):
-		selected = false
-		get_parent().is_holding = false
-
-
 var stamp = preload("res://OfficeTools/GreenStamp.tscn")
+#var selected = false
+
+#func _on_PickupArea_input_event(viewport, event, shape_idx):
+#	if event is InputEventMouseButton:
+#		if event.pressed:
+#			if event.button_index == BUTTON_LEFT:
+#				selected = true
+#				get_parent().is_holding = true
+
+#func _input(event):
+#	if event is InputEventMouseButton:
+#		if event.pressed:
+#			if event.button_index == BUTTON_LEFT:
+#				if selected:
+#					$AnimationPlayer.play("Stamp")
+
+#func _process(delta):
+#	if selected:
+#		position = get_global_mouse_position()
+#
+#
+#	if Input.is_action_just_pressed("ui_accept"):
+#		selected = false
+#		get_parent().is_holding = false
 
 
 func _stamp():
@@ -53,3 +51,7 @@ func get_top_doc() -> Area2D:
 				top_z = area.position.y
 				
 	return top_piece
+
+
+func _on_Button_pressed():
+	$AnimationPlayer.play("Stamp")

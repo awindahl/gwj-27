@@ -1,48 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Paper.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://OfficeTools/StampBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OfficeTools/Paper1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Papers, Please.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Stamp.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Desk16x9.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/TestBench.gd" type="Script" id=5]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 147.94, 144.942 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 28.9572, 31.2526 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 18.0459, 10 )
-
-[sub_resource type="Animation" id=4]
-resource_name = "Stamp"
-length = 0.4
-step = 0.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0612854, 0.187931 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 42.211 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("StampArea/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.0489027, 0.0631659, 0.0896549 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true ]
-}
 
 [node name="TestBench" type="Node2D"]
 script = ExtResource( 5 )
@@ -52,70 +14,18 @@ script = ExtResource( 3 )
 
 [node name="YSort" type="YSort" parent="Papers, Please"]
 
-[node name="Paper1" type="Area2D" parent="Papers, Please/YSort" groups=[
-"Documents",
-]]
-position = Vector2( 564, 304 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Paper1" parent="Papers, Please/YSort" instance=ExtResource( 2 )]
 
-[node name="Sprite" type="Sprite" parent="Papers, Please/YSort/Paper1"]
-scale = Vector2( 4.79532, 4.79532 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 64, 64 )
-region_filter_clip = true
+[node name="Paper2" parent="Papers, Please/YSort" instance=ExtResource( 2 )]
+position = Vector2( 433.833, 232.567 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Papers, Please/YSort/Paper1"]
-visible = false
-shape = SubResource( 1 )
+[node name="Paper3" parent="Papers, Please/YSort" instance=ExtResource( 2 )]
+position = Vector2( 843.383, 308.762 )
 
-[node name="Paper2" type="Area2D" parent="Papers, Please/YSort" groups=[
-"Documents",
-]]
-position = Vector2( 668, 352 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Background" type="Sprite" parent="Papers, Please"]
+scale = Vector2( 0.334, 0.334 )
+z_index = -11
+texture = ExtResource( 4 )
+centered = false
 
-[node name="Sprite" type="Sprite" parent="Papers, Please/YSort/Paper2"]
-scale = Vector2( 4.79532, 4.79532 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Papers, Please/YSort/Paper2"]
-shape = SubResource( 1 )
-
-[node name="Stamp" type="Node2D" parent="."]
-position = Vector2( 231, 269 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Stamp"]
-modulate = Color( 0.00784314, 1, 0, 1 )
-scale = Vector2( 1, 2 )
-texture = ExtResource( 2 )
-
-[node name="PickupArea" type="Area2D" parent="Stamp"]
-position = Vector2( 0, 46 )
-scale = Vector2( 1, 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stamp/PickupArea"]
-position = Vector2( 0, -23 )
-shape = SubResource( 3 )
-
-[node name="StampArea" type="Area2D" parent="Stamp"]
-position = Vector2( 0, 86 )
-scale = Vector2( 1, 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stamp/StampArea"]
-shape = SubResource( 2 )
-disabled = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Stamp"]
-anims/Stamp = SubResource( 4 )
-[connection signal="input_event" from="Stamp/PickupArea" to="Stamp" method="_on_PickupArea_input_event"]
+[node name="StampBar" parent="." instance=ExtResource( 1 )]
