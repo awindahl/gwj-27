@@ -10,7 +10,7 @@ func _input(event):
 		if event.pressed:
 			if event.button_index == BUTTON_LEFT:
 				selected = select_piece()
-				if get_tree().get_nodes_in_group("dragged").empty() and selected != null:
+				if get_tree().get_nodes_in_group("dragged").empty() and selected != null and not get_parent().is_holding:
 					selected.add_to_group("dragged")
 					can_grab = true
 					ev_pos = selected.position - get_global_mouse_position()
