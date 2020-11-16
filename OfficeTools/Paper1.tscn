@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Paper.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Stationary MKIII.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Suranna-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96.6265, 138.294 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31.3317, 29.1996 )
+
 [node name="Paper1" type="Area2D" groups=[
 "Documents",
+"Stampable",
 ]]
 script = ExtResource( 1 )
 __meta__ = {
@@ -15,11 +23,10 @@ __meta__ = {
 }
 
 [node name="Sprite" type="TextureRect" parent="."]
-margin_right = 2508.04
-margin_bottom = 3522.55
+margin_right = 198.0
+margin_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_scale = Vector2( 0.08, 0.08 )
 rect_clip_content = true
 texture = ExtResource( 2 )
 stretch_mode = 4
@@ -27,6 +34,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite"]
+margin_left = 13.0
+margin_top = 56.0
+margin_right = 177.0
+margin_bottom = 253.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "I formally request a book by the author: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stamps" type="Control" parent="Sprite"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 100, 141 )
 shape = SubResource( 1 )
+disabled = true
+
+[node name="SendOut" type="Area2D" parent="."]
+visible = false
+position = Vector2( 100, 141 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SendOut"]
+shape = SubResource( 2 )

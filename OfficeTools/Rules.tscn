@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Rules.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Stationary MKIII.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Suranna-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 96.6265, 138.294 )
+
+[sub_resource type="DynamicFont" id=2]
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 12
+font_data = ExtResource( 3 )
+
+[node name="Rules" type="Area2D" groups=[
+"Documents",
+"Stampable",
+]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 100, 141 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Sprite" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_right = 198.0
+margin_bottom = 280.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite"]
+margin_left = 8.0
+margin_top = 38.0
+margin_right = 191.0
+margin_bottom = 263.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Greetings comrade.
+Deny all requests made today.
+
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stamps" type="Control" parent="Sprite"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

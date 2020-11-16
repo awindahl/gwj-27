@@ -27,8 +27,9 @@ func select_piece() -> Area2D:
 	pos = get_viewport().get_mouse_position()
 	intersects = get_world_2d().get_direct_space_state().intersect_point(pos, 32, [], 0x7FFFFFFF, true, true)
 	for piece in intersects:
-		if piece.collider.position.y > top_z:
-			top_piece = piece.collider
-			top_z = piece.collider.position.y
+		if piece.collider.is_in_group("Documents"):
+			if piece.collider.position.y > top_z:
+				top_piece = piece.collider
+				top_z = piece.collider.position.y
 
 	return top_piece

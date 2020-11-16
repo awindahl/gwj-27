@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Book1.gd" type="Script" id=1]
+[ext_resource path="res://Assets/BookSmall.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Suranna-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 110, 150 )
+
+[sub_resource type="DynamicFont" id=2]
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 12
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 40, 40 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="Book" type="Area2D" groups=[
+"Documents",
+]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 153 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Sprite" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_left = -110.0
+margin_right = 112.0
+margin_bottom = 310.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inside" type="RichTextLabel" parent="Sprite"]
+visible = false
+margin_left = 40.0
+margin_top = 30.0
+margin_right = 223.0
+margin_bottom = 255.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "BLABLABLABLA
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stamps" type="Control" parent="Sprite"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SendOut" type="Area2D" parent="."]
+position = Vector2( 3, 144 )
+collision_layer = 2147483650
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SendOut"]
+shape = SubResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = -109.0
+margin_right = 112.0
+margin_bottom = 311.0
+grow_horizontal = 2
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
