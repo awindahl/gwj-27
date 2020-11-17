@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Book1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/BookSmall.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Suranna-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/pocket.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 110, 150 )
@@ -12,6 +13,8 @@ use_mipmaps = true
 use_filter = true
 extra_spacing_top = 12
 font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=6]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 40, 40 )
@@ -67,6 +70,32 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Pocket" type="Control" parent="Sprite/Stamps"]
+margin_left = 184.0
+margin_top = 136.0
+margin_right = 224.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Sprite/Stamps/Pocket"]
+margin_left = 48.0
+margin_right = 183.0
+margin_bottom = 94.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="Sprite/Stamps/Pocket/TextureRect"]
+position = Vector2( 98, 56 )
+collision_layer = 262144
+collision_mask = 262144
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/Stamps/Pocket/TextureRect/Area2D"]
+shape = SubResource( 6 )
 
 [node name="SendOut" type="Area2D" parent="."]
 position = Vector2( 3, 144 )

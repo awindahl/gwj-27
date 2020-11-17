@@ -2,19 +2,15 @@ extends Area2D
 
 var closed_sprite = preload("res://Assets/BookSmall.png")
 var open_sprite = preload("res://Assets/OpenBookSmall.png")
-
 var status = -1
-
+var approved = ""
 var closed_pos = Vector2()
-
 var going_out = false
-
 var attributes = []
-var info = []
 
 func _ready():
-	for string in info:
-		$Sprite/Inside.text += string
+	for string in attributes:
+		$Sprite/Inside.text += string + "\n"
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -31,6 +27,16 @@ func _process(delta):
 	if going_out:
 		$CollisionShape2D.disabled = true
 		position.y -= 3
+	
+	for area in $Sprite/Stamps/Pocket/TextureRect/Area2D.get_overlapping_areas():
+		if Input.is_action_just_released("click"):
+			if area.attributes != []:
+				area.in_book = true
+				area.get_parent().remove_child(area)
+				$Sprite/Stamps/Pocket/TextureRect.add_child(area)
+				area.position = Vector2(3, -9)
+				area.show_behind_parent = true
+				approved = area.attributes[0]
 
 func _on_Button_button_up():
 	if closed_pos == position and status == -1:

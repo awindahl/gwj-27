@@ -54,3 +54,7 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Stamps" type="Control" parent="Sprite"]
+margin_right = 40.0
+margin_bottom = 40.0
