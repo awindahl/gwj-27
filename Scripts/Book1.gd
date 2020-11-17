@@ -2,6 +2,7 @@ extends Area2D
 
 var closed_sprite = preload("res://Assets/BookSmall.png")
 var open_sprite = preload("res://Assets/OpenBookSmall.png")
+
 var status = -1
 
 var closed_pos = Vector2()
@@ -10,6 +11,10 @@ var going_out = false
 
 var attributes = []
 var info = []
+
+func _ready():
+	for string in info:
+		$Sprite/Inside.text += string
 
 func _input(event):
 	if event is InputEventMouseMotion:

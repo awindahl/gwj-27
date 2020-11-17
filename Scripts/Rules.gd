@@ -3,6 +3,10 @@ extends Area2D
 var attributes = []
 var rules = []
 
+func _ready():
+	for string in rules:
+		$Sprite/RichTextLabel.text += string
+		
 func _input(event):
 	if event is InputEventMouseMotion:
 		if  get_parent().get_parent().selected == self and get_parent().get_parent().can_grab:
