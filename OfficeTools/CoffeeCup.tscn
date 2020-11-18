@@ -45,7 +45,12 @@ scale_amount = 0.44
 color_ramp = SubResource( 2 )
 
 [node name="StampArea" type="Area2D" parent="."]
-position = Vector2( 63, -1066 )
+position = Vector2( 63, -1071 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StampArea"]
 shape = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

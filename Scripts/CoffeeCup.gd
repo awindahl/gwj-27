@@ -11,12 +11,21 @@ func _input(event):
 
 func _process(delta):
 	
-	for area in $StampArea.get_overlapping_areas():
-		if Input.is_action_just_pressed("click") and position == get_global_mouse_position() + get_parent().get_parent().ev_pos:
-			if area.is_in_group("Stampable"):
-				var new_stamp = stain.instance()
-				area.get_node("Sprite/Stamps").add_child(new_stamp)
-				new_stamp.global_position = $StampArea.global_position
+	if Input.is_action_just_released("click") and get_parent().get_parent().selected == self:
+		 $Timer.start()
+#
+#	for area in $StampArea.get_overlapping_areas():
+#		if Input.is_action_just_pressed("click") and position == get_global_mouse_position() + get_parent().get_parent().ev_pos:
+#			_stamp()
+
+func _stamp():
+	var stamped_doc = get_top_doc()
+	if stamped_doc != null:
+		var new_stamp = stain.instance()
+		
+		if stamped_doc.is_in_group("Stampable"):
+			stamped_doc.get_node("Sprite/Stamps").add_child(new_stamp)
+			new_stamp.global_position = $StampArea.global_position
 
 func get_top_doc() -> Area2D:
 	var top_z = -1
@@ -25,9 +34,13 @@ func get_top_doc() -> Area2D:
 	var top_piece: Area2D
 	
 	for area in $StampArea.get_overlapping_areas():
-		if area.is_in_group("Documents"):
+		if area.is_in_group("Stampable"):
 			if area.position.y > top_z:
 				top_piece = area
 				top_z = area.position.y
 				
 	return top_piece
+
+
+func _on_Timer_timeout():
+	_stamp()

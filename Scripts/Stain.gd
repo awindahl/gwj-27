@@ -1,7 +1,9 @@
 extends Sprite
 
 func _process(delta):
-	modulate.a -= 0.01
+	if get_parent().get_parent().get_parent().name == "Desk":
+		modulate.a -= 0.005
+		$Timer.start()
 
 
 func _on_Timer_timeout():
