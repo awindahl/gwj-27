@@ -30,11 +30,11 @@ var stamp = preload("res://OfficeTools/GreenStamp.tscn")
 func _stamp():
 	var stamped_doc = get_top_doc()
 	if stamped_doc != null:
-		if stamped_doc.attributes.find("Approved", 0) and stamped_doc.attributes.find("Denied", 0):
-			stamped_doc.attributes.append("Approved")
 		var new_stamp = stamp.instance()
 		
 		if stamped_doc.is_in_group("Stampable"):
+			if stamped_doc.attributes.find("Approved", 0) and stamped_doc.attributes.find("Denied", 0):
+				stamped_doc.attributes.append("Approved")
 			stamped_doc.get_node("Sprite/Stamps").add_child(new_stamp)
 			new_stamp.global_position = $StampArea.global_position
 

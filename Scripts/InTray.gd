@@ -29,7 +29,7 @@ func _on_Timer_timeout():
 			var new_request = request.instance()
 			new_request.info.append("A")
 			new_book.attributes.append("A")
-			new_book.attributes.append("1967")
+			#new_book.attributes.append("1967")
 			get_parent().get_node("Papers, Please/YSort").add_child(new_book)
 			new_book.position = position
 			new_book.position.y -= 500

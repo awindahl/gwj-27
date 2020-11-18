@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GWJ-27"
+run/main_scene="res://TestBench.tscn"
 config/icon="res://icon.png"
 
 [display]

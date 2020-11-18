@@ -39,7 +39,7 @@ func _process(delta):
 				approved = area.attributes[0]
 
 func _on_Button_button_up():
-	if closed_pos == position and status == -1:
+	if closed_pos == position and status == -1 and get_parent().get_parent().selected == self:
 		$Sprite.texture = open_sprite
 		$CollisionShape2D.get_shape().extents.x = 220
 		$Button.rect_position.x = -220
@@ -51,7 +51,7 @@ func _on_Button_button_up():
 		add_to_group("Stampable")
 		status *= -1
 	
-	elif closed_pos == position and status == 1:
+	elif closed_pos == position and status == 1 and get_parent().get_parent().selected == self:
 		$Sprite.texture = closed_sprite
 		$CollisionShape2D.get_shape().extents.x = 110
 		$Button.rect_position.x = -110
@@ -64,4 +64,5 @@ func _on_Button_button_up():
 		status *= -1
 
 func _on_Button_button_down():
-	closed_pos = position
+	if get_parent().get_parent().selected == self:
+		closed_pos = position

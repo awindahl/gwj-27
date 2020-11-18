@@ -33,6 +33,7 @@ show_behind_parent = true
 margin_right = 198.0
 margin_bottom = 280.0
 rect_clip_content = true
+mouse_filter = 2
 texture = ExtResource( 2 )
 stretch_mode = 4
 __meta__ = {
@@ -44,6 +45,7 @@ margin_left = 8.0
 margin_top = 38.0
 margin_right = 191.0
 margin_bottom = 263.0
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Banned Authors:
@@ -56,6 +58,7 @@ __meta__ = {
 [node name="Stamps" type="Control" parent="Sprite"]
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
