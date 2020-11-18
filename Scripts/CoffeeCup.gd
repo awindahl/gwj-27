@@ -12,7 +12,7 @@ func _input(event):
 func _process(delta):
 	
 	for area in $StampArea.get_overlapping_areas():
-		if Input.is_action_just_released("click"):
+		if Input.is_action_just_pressed("click") and position == get_global_mouse_position() + get_parent().get_parent().ev_pos:
 			if area.is_in_group("Stampable"):
 				var new_stamp = stain.instance()
 				area.get_node("Sprite/Stamps").add_child(new_stamp)

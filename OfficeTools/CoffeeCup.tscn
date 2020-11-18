@@ -45,7 +45,7 @@ scale_amount = 0.44
 color_ramp = SubResource( 2 )
 
 [node name="StampArea" type="Area2D" parent="."]
-position = Vector2( 63, -1061 )
+position = Vector2( 63, -1066 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StampArea"]
 shape = SubResource( 4 )

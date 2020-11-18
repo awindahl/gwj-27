@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://OfficeTools/StampBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://OfficeTools/CoffeeCup.tscn" type="PackedScene" id=2]
@@ -9,11 +9,10 @@
 [ext_resource path="res://Scripts/OutTray.gd" type="Script" id=7]
 [ext_resource path="res://Assets/In_Tray.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/InTray.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Cursor.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Radio.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Radio.gd" type="Script" id=13]
-[ext_resource path="res://Assets/vector_whiteIcons.svg" type="Texture" id=14]
 [ext_resource path="res://Scripts/Mouse.gd" type="Script" id=15]
-[ext_resource path="res://Assets/vector_blackIcons.svg" type="Texture" id=16]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -137,20 +136,10 @@ z_index = 1000
 script = ExtResource( 15 )
 
 [node name="Sprite" type="Sprite" parent="Mouse"]
-texture = ExtResource( 14 )
-offset = Vector2( 10.734, 11.751 )
-vframes = 7
-hframes = 15
-frame = 42
-
-[node name="Sprite2" type="Sprite" parent="Mouse"]
-show_behind_parent = true
-scale = Vector2( 1.1, 1.1 )
-texture = ExtResource( 16 )
-offset = Vector2( 9.648, 10.722 )
-vframes = 7
-hframes = 15
-frame = 42
+position = Vector2( 2, 2 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 10 )
+offset = Vector2( 35.158, 90.747 )
 [connection signal="pressed" from="Radio/RightButton" to="Radio" method="_on_RightButton_pressed"]
 [connection signal="pressed" from="Radio/LeftButton" to="Radio" method="_on_LeftButton_pressed"]
 [connection signal="timeout" from="InTray/Timer" to="InTray" method="_on_Timer_timeout"]
