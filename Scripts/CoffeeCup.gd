@@ -3,20 +3,19 @@ extends Area2D
 var last_pos = Vector2()
 var stain = preload ("res://OfficeTools/Stain.tscn")
 var attributes = []
+var moving = false
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		if  get_parent().get_parent().selected == self and get_parent().get_parent().can_grab:
 			position = get_global_mouse_position() + get_parent().get_parent().ev_pos
+			moving = true
 
 func _process(delta):
-	
+	print(moving)
 	if Input.is_action_just_released("click") and get_parent().get_parent().selected == self:
-		 $Timer.start()
-#
-#	for area in $StampArea.get_overlapping_areas():
-#		if Input.is_action_just_pressed("click") and position == get_global_mouse_position() + get_parent().get_parent().ev_pos:
-#			_stamp()
+		$Timer.start()
+		moving = false
 
 func _stamp():
 	var stamped_doc = get_top_doc()
