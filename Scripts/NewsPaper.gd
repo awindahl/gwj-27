@@ -37,11 +37,11 @@ var surnames = [
 ]
 
 var bread1_1 = "The author "
-var bread1_2 = " has been deemed an enemy of the state."
+var bread1_2 = " has been deemed an enemy of the state. Any works created by this author should be handed in to The Ministry for the Assignment of Literature"
 
-var bread2_1 = "All printed media from " 
-var bread2_2 = " is considered counter- revolutionary."
-var bread2_3 = "Further, the work of the Citizen's bureau has increased nominal GPD by "
+var bread2_1 = "All printed media from the territory of " 
+var bread2_2 = " is considered counter-revolutionary."
+var bread2_3 = "Furthermore, the work of the Citizen's bureau has increased nominal GPD by "
 
 func _ready():
 	randomize()
