@@ -55,7 +55,7 @@ margin_bottom = 271.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "The following topics and years are banned:
+text = "The following topics, authors, and years are banned:
 "
 scroll_active = false
 __meta__ = {

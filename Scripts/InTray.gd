@@ -68,6 +68,30 @@ var regions = [
 	"Medleria"
 ]
 
+var surnames = [
+	"Goettner",
+	"Gruendemann",
+	"Kallweit",
+	"Netzke",
+	"Aristov",
+	"Blohkin",
+	"Gusev",
+	"Zharkov",
+	"Ishutin",
+	"Vogt",
+	"Nowak",
+	"Pietsch",
+	"Radau",
+	"Windhov",
+	"Moorc"
+]
+
+func _ready():
+	var rr = _randomize_rule()
+	get_parent().get_node("Papers, Please/YSort/NewsPaper").rules = rr
+	get_parent().rules += rr
+	
+
 func _randomize_rule() -> Array:
 	randomize()
 	
@@ -85,14 +109,17 @@ func _randomize_rule() -> Array:
 	var rand_title_fiction_second = randi()%second_book_title_fiction.size()
 	rand_title_fiction_second = second_book_title_fiction[rand_title_fiction_second]
 
-	var rand_date = randi()%98+1889
+	var rand_date = randi()%45+1919
 	rand_date = var2str(rand_date)
 	
-	var random_i = randi()%2
-	
+	var rand_name = randi()%surnames.size()
+	rand_name = surnames[rand_name]
+	rand_name += ", "
 	
 	var rand_reg = randi()%regions.size()
 	rand_reg = regions[rand_reg]
+	
+	var random_i = randi()%2
 	
 	if random_i == 0:
 		rand_title_fact_second += "\n"
@@ -101,11 +128,12 @@ func _randomize_rule() -> Array:
 		rand_title_fiction_second += "\n"
 		rule.append(rand_title_fiction_second)
 	
-	rand_date += ", "
+	rule.append(rand_name)
+	rand_date += "\n"
 	rule.append(rand_date)
 	#rand_reg += "\n"
 	rule.append(rand_reg)
-
+	
 	return rule 
 
 func _randomize_request() -> Array:
@@ -139,9 +167,15 @@ func _randomize_request() -> Array:
 		rand_title_fiction_second += "\n"
 		request.append(rand_title_fiction_second)
 	
-	var rand_date = randi()%98+1889
+	
+	var rand_name = randi()%surnames.size()
+	rand_name = surnames[rand_name]
+	rand_name += ", "
+	request.append(rand_name)
+	
+	var rand_date = randi()%45+1919
 	rand_date = var2str(rand_date)
-	rand_date += ", "
+	rand_date += "\n"
 	request.append(rand_date)
 	
 	var rand_reg = randi()%regions.size()
