@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Approvedstamp.png" type="Texture" id=1]
+
+[node name="GreenStamp" type="Sprite"]
+light_mask = -2146959360
+scale = Vector2( 0.069, 0.045 )
+texture = ExtResource( 1 )
