@@ -10,7 +10,8 @@ var attributes = []
 
 func _ready():
 	for string in attributes:
-		$Sprite/Inside.text += string + "\n"
+		$Sprite/Inside.text += string 
+
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -30,13 +31,14 @@ func _process(delta):
 	
 	for area in $Sprite/Stamps/Pocket/TextureRect/Area2D.get_overlapping_areas():
 		if Input.is_action_just_released("click"):
-			if area.attributes != []:
-				area.in_book = true
-				area.get_parent().remove_child(area)
-				$Sprite/Stamps/Pocket/TextureRect.add_child(area)
-				area.position = Vector2(3, -9)
-				area.show_behind_parent = true
-				approved = area.attributes[0]
+			if not area.get_parent().is_in_group("Book"):
+				if area.get_parent().attributes != []:
+					area.get_parent().in_book = true
+					area.get_parent().get_parent().remove_child(area.get_parent())
+					$Sprite/Stamps/Pocket/TextureRect.add_child(area.get_parent())
+					area.get_parent().position = Vector2(3, -9)
+					area.get_parent().show_behind_parent = true
+					approved = area.get_parent().attributes[0]
 
 func _on_Button_button_up():
 	if closed_pos == position and status == -1 and get_parent().get_parent().selected == self:

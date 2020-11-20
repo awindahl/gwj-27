@@ -12,7 +12,6 @@ func _input(event):
 			moving = true
 
 func _process(delta):
-	print(moving)
 	if Input.is_action_just_released("click") and get_parent().get_parent().selected == self:
 		$Timer.start()
 		moving = false

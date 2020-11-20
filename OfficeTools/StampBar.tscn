@@ -19,29 +19,29 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 200 ), Vector2( 800, 200 ) ]
+"values": [ Vector2( 0, 772 ), Vector2( 800, 772 ) ]
 }
 
 [node name="StampBar" type="Node2D"]
-position = Vector2( 0, 200 )
+position = Vector2( 0, 772 )
 script = ExtResource( 5 )
 
 [node name="GoodStamp" parent="." instance=ExtResource( 1 )]
-position = Vector2( -410.592, 143 )
+position = Vector2( -410.592, -449 )
 
 [node name="BadStamp" parent="." instance=ExtResource( 2 )]
-position = Vector2( -60.696, 143 )
+position = Vector2( -60.696, -449 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -406, 128 )
+position = Vector2( -406, -464 )
 scale = Vector2( 0.334, 0.334 )
 texture = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = -9.0
-margin_top = 86.0
+margin_top = -506.0
 margin_right = 102.0
-margin_bottom = 152.0
+margin_bottom = -440.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 1 )
 custom_styles/focus = SubResource( 1 )

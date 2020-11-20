@@ -4,7 +4,8 @@ var decay = false
 
 func _process(delta):
 	
-	if get_parent().get_parent().get_parent().get_parent().get_node("YSort/CoffeeCup") != null:
+	
+	if get_parent().get_parent().get_parent().get_parent().get_node_or_null("YSort/CoffeeCup") != null:
 		if get_parent().get_parent().get_parent().get_parent().get_node("YSort/CoffeeCup").moving:
 			decay = true
 	
