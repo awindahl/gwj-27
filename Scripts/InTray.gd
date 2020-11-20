@@ -86,11 +86,6 @@ var surnames = [
 	"Moorc"
 ]
 
-func _ready():
-	var rr = _randomize_rule()
-	get_parent().get_node("Papers, Please/YSort/NewsPaper").rules = rr
-	get_parent().rules += rr
-	
 
 func _randomize_rule() -> Array:
 	randomize()

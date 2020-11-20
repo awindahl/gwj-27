@@ -65,7 +65,11 @@ func _ready():
 	rand_reg = regions[rand_reg]
 	
 	var rand_per = (randf())*10
-	print(rand_per)
+	
+	rules.append(rand_name)
+	rules.append(rand_reg)
+	
+	get_parent().get_parent().get_parent().rules += rules
 	
 	$Sprite/Bread1.text = bread1_1 + rand_name + bread1_2
 	$Sprite/Bread2.text = bread2_1 + rand_reg + bread2_2 + "\n \n" + bread2_3 + var2str(rand_per) + "%."
