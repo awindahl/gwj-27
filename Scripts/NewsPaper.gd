@@ -15,7 +15,10 @@ var regions = [
 	"Windia",
 	"Melpol",
 	"Anagria",
-	"Medleria"
+	"Medleria",
+	"Markov",
+	"Paltoria"
+	
 ]
 
 var surnames = [
@@ -33,7 +36,9 @@ var surnames = [
 	"Pietsch",
 	"Radau",
 	"Windhov",
-	"Moorc"
+	"Moorc",
+	"Quentov",
+	"Clantov"
 ]
 
 var bread1_1 = "The author "

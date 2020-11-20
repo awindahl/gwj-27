@@ -14,9 +14,9 @@ var first_book_title_fact = [
 	"Advanced",
 	"Theoretical",
 	"A Theory of",
-	"A collection on",
-	"A commentary on",
-	"An advanced guide to",
+	"A Collection on",
+	"A Commentary on",
+	"An Advanced Guide to",
 	"The Handbook on"
 ]
 
@@ -26,7 +26,7 @@ var second_book_title_fact = [
 	"Biology",
 	"Nuclear Physics",
 	"Sociology",
-	"State theory",
+	"State Theory",
 	"Censorship",
 	"Philosophy",
 	"Ethics",
@@ -34,16 +34,23 @@ var second_book_title_fact = [
 ]
 
 var first_book_title_fiction = [
-	"The Thiefs",
-	"The Watchmakers",
-	"A travellers",
-	"A mans",
-	"A womans",
-	"A dogs",
-	"The Comrades",
-	"A Loyal Comrades",
-	"Soldiers",
-	"Party Members"
+	"The Thief's",
+	"The Watchmaker's",
+	"A Traveller's",
+	"A Man's",
+	"A Woman's",
+	"A Dog's",
+	"The Comrade's",
+	"A Loyal Comrade's",
+	"Soldier's",
+	"Party Member's",
+	"Traitor's",
+	"The Messenger's",
+	"The Leader's",
+	"A Midwinter",
+	"A Summer's",
+	"An Ugly",
+	"A Frightening"
 ]
 
 var second_book_title_fiction =[
@@ -56,7 +63,8 @@ var second_book_title_fiction =[
 	"Purpose",
 	"Death",
 	"Vengeance",
-	"Story"
+	"Story",
+	"Life"
 ]
 
 var regions = [
@@ -65,7 +73,9 @@ var regions = [
 	"Windia",
 	"Melpol",
 	"Anagria",
-	"Medleria"
+	"Medleria",
+	"Markov",
+	"Paltoria"
 ]
 
 var surnames = [
@@ -83,7 +93,9 @@ var surnames = [
 	"Pietsch",
 	"Radau",
 	"Windhov",
-	"Moorc"
+	"Moorc",
+	"Quentov",
+	"Clantov"
 ]
 
 
