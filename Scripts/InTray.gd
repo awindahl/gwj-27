@@ -128,21 +128,26 @@ func _randomize_rule() -> Array:
 	var rand_reg = randi()%regions.size()
 	rand_reg = regions[rand_reg]
 	
-	var random_i = randi()%2
+	var what_rule = randi()%4+1
 	
-	if random_i == 0:
-		rand_title_fact_second += "\n"
-		rule.append(rand_title_fact_second)
-	elif random_i == 1:
-		rand_title_fiction_second += "\n"
-		rule.append(rand_title_fiction_second)
-	
-	rule.append(rand_name)
-	rand_date += "\n"
-	rule.append(rand_date)
-	#rand_reg += "\n"
-	rule.append(rand_reg)
-	
+	match what_rule:
+		1:
+			var random_i = randi()%2
+			
+			if random_i == 0:
+				rand_title_fact_second += "\n"
+				rule.append(rand_title_fact_second)
+			elif random_i == 1:
+				rand_title_fiction_second += "\n"
+				rule.append(rand_title_fiction_second)
+		2:
+			rule.append(rand_name)
+		3:
+			rand_date += "\n"
+			rule.append(rand_date)
+		4:
+			rule.append(rand_reg)
+
 	return rule 
 
 func _randomize_request() -> Array:
@@ -201,13 +206,14 @@ func _on_RulesTimer_timeout():
 	#new_list.rules.append("\n")
 	#new_list.rules += _randomize_rule()
 	get_parent().rules += new_list.rules
+	print(get_parent().rules)
 	
 	get_parent().get_node("Papers, Please/YSort").add_child(new_list)
 	
 	new_list.position = position
 	new_list.position.y -= 400
 	new_list.position.x -= 100
-	$RulesTimer.start(60)
+	$RulesTimer.start(20)
 	
 
 func _on_RequestTimer_timeout():
@@ -226,4 +232,4 @@ func _on_RequestTimer_timeout():
 	new_request.position = position
 	new_request.position.y -= 400
 	new_request.position.x -= 100
-	$RequestTimer.start(30)
+	$RequestTimer.start(15)

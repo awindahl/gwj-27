@@ -71,10 +71,12 @@ func _ready():
 	
 	var rand_per = (randf())*10
 	
+	rand_name += ", "
 	rules.append(rand_name)
 	rules.append(rand_reg)
 	
 	get_parent().get_parent().get_parent().rules += rules
+	print(get_parent().get_parent().get_parent().rules)
 	
 	$Sprite/Bread1.text = bread1_1 + rand_name + bread1_2
 	$Sprite/Bread2.text = bread2_1 + rand_reg + bread2_2 + "\n \n" + bread2_3 + var2str(rand_per) + "%." + "\nThe people are eternally grateful to the Citizen's Bureau. Long live our Dzansk!"
