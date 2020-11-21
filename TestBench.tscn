@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://OfficeTools/StampBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://OfficeTools/CoffeeCup.tscn" type="PackedScene" id=2]
@@ -64,9 +64,21 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 22 )
 
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.796078, 0.305882, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.439216, 0.121569, 0.121569, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.596078, 0.176471, 0.176471, 1 )
+
 [sub_resource type="DynamicFont" id=13]
 size = 32
-outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 21 )
 
@@ -655,6 +667,11 @@ margin_left = -101.0
 margin_top = 78.0
 margin_right = 145.0
 margin_bottom = 144.0
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/disabled = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
 custom_fonts/font = SubResource( 13 )
 text = "Walk Home"
 script = ExtResource( 23 )

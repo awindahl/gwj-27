@@ -1,12 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Rules.gd" type="Script" id=1]
-[ext_resource path="res://Assets/PaperBase.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Note.png" type="Texture" id=2]
 [ext_resource path="res://Assets/CourierPrime-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Assets/PaperDetails.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 96.6265, 138.294 )
+extents = Vector2( 125.309, 83.902 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 12
@@ -24,15 +23,14 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 100, 141 )
+position = Vector2( 124, 85 )
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Sprite" type="TextureRect" parent="."]
 show_behind_parent = true
-margin_right = 198.0
-margin_bottom = 280.0
+margin_right = 253.0
+margin_bottom = 169.0
 rect_clip_content = true
 mouse_filter = 2
 texture = ExtResource( 2 )
@@ -41,17 +39,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Sprite"]
-modulate = Color( 0.768627, 0.392157, 0.392157, 1 )
-scale = Vector2( 0.08, 0.08 )
-texture = ExtResource( 4 )
-centered = false
-
 [node name="RichTextLabel" type="RichTextLabel" parent="Sprite"]
 margin_left = 8.0
-margin_top = 52.0
+margin_top = 23.0
 margin_right = 191.0
-margin_bottom = 271.0
+margin_bottom = 151.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
