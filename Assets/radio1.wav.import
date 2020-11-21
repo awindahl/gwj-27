@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/radio1.wav-439f0aa55b3b78968d4f51b013cb119e.sample"
+
+[deps]
+
+source_file="res://Assets/radio1.wav"
+dest_files=[ "res://.import/radio1.wav-439f0aa55b3b78968d4f51b013cb119e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -167,9 +167,10 @@ func _randomize_rule() -> Array:
 			#rule.append(rand_reg)
 	
 	for item in get_parent().rules:
-		if item != to_be_added[0]:
+		if item != to_be_added:
 			rule.append(to_be_added)
-			return rule
+			
+		return rule
 	
 	return _randomize_rule()
 

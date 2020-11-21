@@ -9,6 +9,9 @@ var fails = 0
 var successes = 0
 var day = 1
 
+var did_fuckup = false
+var no_fuckup = true
+
 onready var inbox = $InTray
 onready var sorted = $"Papers, Please/YSort"
 var good_slip = preload("res://OfficeTools/GoodSlip.tscn")
@@ -16,7 +19,8 @@ var bad_slip = preload("res://OfficeTools/BadSlip.tscn")
 
 func _rule_parse(object):
 	
-	
+	did_fuckup = false
+	no_fuckup = true
 	
 	if object.correct_request:
 	
@@ -24,9 +28,10 @@ func _rule_parse(object):
 			
 			for rule in rules:
 				for attr in object.attributes:
-					if attr == rule:
+					if attr == rule and not did_fuckup:
 						print("You fucked up")
-						#fails += 1
+						did_fuckup = true
+						fails += 1
 						did_good = false
 						
 						
@@ -39,17 +44,18 @@ func _rule_parse(object):
 			
 			for rule in rules:
 				for attr in object.attributes:
-					if attr == rule:
+					if attr == rule and no_fuckup:
+						no_fuckup = false
 						print("You did good")
 						successes += 1
 						did_bad = false
 						
 			if did_bad:
 				print("you did bad")
-				#fails += 1
+				fails += 1
 	else:
 		print("wrong request")
-		#fails += 1
+		fails += 1
 
 func _on_RewardTimer_timeout():
 	var new_slip = good_slip.instance()
@@ -68,7 +74,8 @@ func _on_PunishmentTimer_timeout():
 func _on_DayTime_timeout():
 	get_tree().paused = true
 	$VictoryScreen/TotalNum.text = var2str(total)
-	fails = total - successes
+	var missed = (total - successes - fails)
+	fails += missed
 	$VictoryScreen/FailNum.text = var2str(fails)
 	$VictoryScreen/SuccessNum.text = var2str(successes)
 	Singleton.party_ranking -= successes

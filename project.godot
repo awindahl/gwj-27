@@ -17,13 +17,16 @@ _global_script_class_icons={
 
 config/name="Ministry"
 run/main_scene="res://Title.tscn"
-run/disable_stdout=true
 run/disable_stderr=true
 config/icon="res://Assets/mug.png"
 
 [autoload]
 
 Singleton="*res://Scripts/Singleton.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [display]
 
