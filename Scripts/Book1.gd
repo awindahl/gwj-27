@@ -1,18 +1,37 @@
 extends Area2D
 
-var closed_sprite = preload("res://Assets/BookSmall.png")
+var closed_sprite
+var closed_sprite1 = preload("res://Assets/BookSmall.png")
+var closed_sprite2 = preload("res://Assets/BookSmallRed.png")
+var closed_sprite3 = preload("res://Assets/BookSmallBlue.png")
+
 var open_sprite = preload("res://Assets/OpenBookSmall.png")
 var status = -1
 var approved = ""
 var closed_pos = Vector2()
 var going_out = false
 var attributes = []
+var ordered_num 
+var correct_request = false
 
 func _ready():
+	randomize()
+	
 	for string in attributes:
 		$Sprite/Inside.text += string 
-
-
+	
+	var rand_num = randi()%3+1
+	
+	match rand_num:
+		1:
+			closed_sprite = closed_sprite1
+		2:
+			closed_sprite = closed_sprite2
+		3:
+			closed_sprite = closed_sprite3
+	
+	$Sprite.texture = closed_sprite
+	
 func _input(event):
 	if event is InputEventMouseMotion:
 		if  get_parent().get_parent().selected == self and get_parent().get_parent().can_grab:
@@ -39,6 +58,9 @@ func _process(delta):
 					area.get_parent().position = Vector2(3, -9)
 					area.get_parent().show_behind_parent = true
 					approved = area.get_parent().attributes[0]
+					
+					if area.get_parent().ordered_num == ordered_num:
+						correct_request = true
 
 func _on_Button_button_up():
 	if closed_pos == position and status == -1 and get_parent().get_parent().selected == self:

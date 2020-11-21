@@ -4,6 +4,7 @@ var attributes = []
 var info = []
 var going_out = false
 var in_book = false
+var ordered_num 
 
 func _ready():
 	for string in info:

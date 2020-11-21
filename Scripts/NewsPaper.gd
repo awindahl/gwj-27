@@ -45,7 +45,7 @@ var bread1_1 = "The author "
 var bread1_2 = " has been deemed an enemy of the state. Any works created by this author should be handed in to The Ministry for the Assignment of Literature"
 
 var bread2_1 = "All printed media from the territory of " 
-var bread2_2 = " is considered counter-revolutionary."
+var bread2_2 = " is considered counter- revolutionary."
 var bread2_3 = "Furthermore, the work of the Citizen's bureau has increased nominal GPD by "
 
 func _ready():
@@ -77,7 +77,7 @@ func _ready():
 	get_parent().get_parent().get_parent().rules += rules
 	
 	$Sprite/Bread1.text = bread1_1 + rand_name + bread1_2
-	$Sprite/Bread2.text = bread2_1 + rand_reg + bread2_2 + "\n \n" + bread2_3 + var2str(rand_per) + "%."
+	$Sprite/Bread2.text = bread2_1 + rand_reg + bread2_2 + "\n \n" + bread2_3 + var2str(rand_per) + "%." + "\nThe people are eternally grateful to the Citizen's Bureau. Long live our Dzansk!"
 
 func _input(event):
 	if event is InputEventMouseMotion:

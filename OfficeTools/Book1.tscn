@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Book1.gd" type="Script" id=1]
-[ext_resource path="res://Assets/BookSmall.png" type="Texture" id=2]
 [ext_resource path="res://Assets/CourierPrime-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/pocket.png" type="Texture" id=4]
 
@@ -30,6 +29,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 2, 153 )
 shape = SubResource( 1 )
 disabled = true
@@ -41,7 +41,6 @@ margin_right = 112.0
 margin_bottom = 310.0
 rect_clip_content = true
 mouse_filter = 2
-texture = ExtResource( 2 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -98,6 +97,7 @@ collision_layer = 262144
 collision_mask = 262144
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/Stamps/Pocket/TextureRect/Area2D"]
+visible = false
 shape = SubResource( 3 )
 
 [node name="SendOut" type="Area2D" parent="."]

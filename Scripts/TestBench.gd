@@ -14,30 +14,34 @@ var bad_slip = preload("res://OfficeTools/BadSlip.tscn")
 
 func _rule_parse(object):
 	
-	if object.approved == "Approved":
-		
-		for rule in rules:
-			for attr in object.attributes:
-				if attr == rule:
-					#score -= 1
-					print("You fucked up")
-					did_good = false
-					break
-					
-		if did_good:
-			print ("you did good")
-		
-	elif object.approved == "Denied":
-		
-		for rule in rules:
-			for attr in object.attributes:
-				if attr == rule:
-					#score += 1
-					print("You did good")
-					did_bad = false
-					break
-		if did_bad:
-			print("you did bad")
+	if object.correct_request:
+	
+		if object.approved == "Approved":
+			
+			for rule in rules:
+				for attr in object.attributes:
+					if attr == rule:
+						#score -= 1
+						print("You fucked up")
+						did_good = false
+						break
+						
+			if did_good:
+				print ("you did good")
+			
+		elif object.approved == "Denied":
+			
+			for rule in rules:
+				for attr in object.attributes:
+					if attr == rule:
+						#score += 1
+						print("You did good")
+						did_bad = false
+						break
+			if did_bad:
+				print("you did bad")
+	else:
+		print("wrong request")
 
 func _on_RewardTimer_timeout():
 	var new_slip = good_slip.instance()
@@ -57,4 +61,5 @@ func _on_PunishmentTimer_timeout():
 
 func _on_DayTime_timeout():
 	get_tree().paused = true
+	$AnimationPlayer.play("Fade to Black")
 	day += 1

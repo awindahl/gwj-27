@@ -7,6 +7,8 @@ var book = preload("res://OfficeTools/Book1.tscn")
 var request = preload ("res://OfficeTools/Paper1.tscn")
 var random_request
 
+var num_request = 0
+
 var first_book_title_fact = [
 	"The Fundamentals of",
 	"The Phenomenology of",
@@ -212,6 +214,9 @@ func _on_RequestTimer_timeout():
 	random_request = _randomize_request()
 	var new_book = book.instance()
 	var new_request = request.instance()
+	num_request += 1
+	new_book.ordered_num = num_request
+	new_request.ordered_num = num_request
 	new_request.info = random_request
 	new_book.attributes = random_request
 	get_parent().get_node("Papers, Please/YSort").add_child(new_book)
