@@ -225,11 +225,16 @@ func _randomize_request() -> Array:
 
 func _on_RulesTimer_timeout():
 	var new_list = rule_list.instance()
-	new_list.rules += _randomize_rule()
-	new_list.rules += _randomize_rule()
+	
+	var new_rules = _randomize_rule()
+	new_list.rules += new_rules
+	get_parent().rules += new_rules
+	
+	var new_rules2 = _randomize_rule()
+	new_list.rules += new_rules2
+	get_parent().rules += new_rules2
 	#new_list.rules.append("\n")
 	#new_list.rules += _randomize_rule()
-	get_parent().rules += new_list.rules
 	print(get_parent().rules)
 	
 	get_parent().get_node("Papers, Please/YSort").add_child(new_list)
@@ -241,6 +246,8 @@ func _on_RulesTimer_timeout():
 	
 
 func _on_RequestTimer_timeout():
+	
+	get_parent().total += 1
 	random_request = _randomize_request()
 	var new_book = book.instance()
 	var new_request = request.instance()

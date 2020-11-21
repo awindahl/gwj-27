@@ -5,7 +5,7 @@ var rules = []
 
 func _ready():
 	for string in rules:
-		$Sprite/RichTextLabel.text += string
+		$Sprite/RichTextLabel.text += string + "\n"
 		
 func _input(event):
 	if event is InputEventMouseMotion:
