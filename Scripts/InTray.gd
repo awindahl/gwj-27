@@ -120,6 +120,11 @@ func _randomize_rule() -> Array:
 
 	var rand_date = randi()%45+1919
 	rand_date = var2str(rand_date)
+	var rand_date2 = randi()%45+1919
+	rand_date2 = var2str(rand_date2)
+	var rand_date3 = randi()%45+1919
+	rand_date3 = var2str(rand_date3)
+	
 	
 	var rand_name = randi()%surnames.size()
 	rand_name = surnames[rand_name]
@@ -129,6 +134,9 @@ func _randomize_rule() -> Array:
 	rand_reg = regions[rand_reg]
 	
 	var what_rule = randi()%4+1
+	var num_rule = false
+	
+	var to_be_added = []
 	
 	match what_rule:
 		1:
@@ -136,19 +144,34 @@ func _randomize_rule() -> Array:
 			
 			if random_i == 0:
 				rand_title_fact_second += "\n"
-				rule.append(rand_title_fact_second)
+				to_be_added = rand_title_fact_second
+				#rule.append(rand_title_fact_second)
 			elif random_i == 1:
 				rand_title_fiction_second += "\n"
-				rule.append(rand_title_fiction_second)
+				to_be_added = rand_title_fiction_second
+				#rule.append(rand_title_fiction_second)
 		2:
-			rule.append(rand_name)
+			#rule.append(rand_name)
+			to_be_added = rand_name
 		3:
+			num_rule = true
 			rand_date += "\n"
-			rule.append(rand_date)
+#			rand_date2 += "\n"
+#			rand_date3 += "\n"
+			to_be_added = rand_date
+#			to_be_added.append(rand_date2)
+#			to_be_added.append(rand_date3)
+			#rule.append(rand_date)
 		4:
-			rule.append(rand_reg)
-
-	return rule 
+			to_be_added = rand_reg
+			#rule.append(rand_reg)
+	
+	for item in get_parent().rules:
+		if item != to_be_added[0]:
+			rule.append(to_be_added)
+			return rule
+	
+	return _randomize_rule()
 
 func _randomize_request() -> Array:
 	randomize()
@@ -202,6 +225,7 @@ func _randomize_request() -> Array:
 
 func _on_RulesTimer_timeout():
 	var new_list = rule_list.instance()
+	new_list.rules += _randomize_rule()
 	new_list.rules += _randomize_rule()
 	#new_list.rules.append("\n")
 	#new_list.rules += _randomize_rule()
