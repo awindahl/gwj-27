@@ -9,3 +9,4 @@ func _process(delta):
 				if area.get_parent().approved != "":
 					area.get_parent().going_out = true
 					get_parent()._rule_parse(area.get_parent())
+					get_parent().get_node("InTray").tutorial_request = true

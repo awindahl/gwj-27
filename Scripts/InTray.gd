@@ -1,6 +1,8 @@
 extends Node2D
 
 var sent_out = 0
+var tutorial_request = false
+var passed_5 = false
 var rules = []
 var rule_list = preload("res://OfficeTools/Rules.tscn")
 var book = preload("res://OfficeTools/Book1.tscn")
@@ -100,6 +102,11 @@ var surnames = [
 	"Clantov"
 ]
 
+func _process(delta):
+	if tutorial_request and Singleton.day == 1 and not passed_5:
+		passed_5 = true
+		$RulesTimer.start(5)
+		sent_out = 6
 
 func _randomize_rule() -> Array:
 	randomize()
@@ -225,43 +232,235 @@ func _randomize_request() -> Array:
 
 
 func _on_RulesTimer_timeout():
-	var new_list = rule_list.instance()
 	
-	var new_rules = _randomize_rule()
-	new_list.rules += new_rules
-	get_parent().rules += new_rules
-	
-	var new_rules2 = _randomize_rule()
-	new_list.rules += new_rules2
-	get_parent().rules += new_rules2
-	#new_list.rules.append("\n")
-	#new_list.rules += _randomize_rule()
-	print(get_parent().rules)
-	
-	get_parent().get_node("Papers, Please/YSort").add_child(new_list)
-	
-	new_list.position = position
-	new_list.position.y -= 400
-	new_list.position.x -= 100
-	$RulesTimer.start(20)
-	
-
+	if Singleton.day != 1:
+		var new_list = rule_list.instance()
+		
+		var new_rules = _randomize_rule()
+		new_list.rules += new_rules
+		get_parent().rules += new_rules
+		
+		var new_rules2 = _randomize_rule()
+		new_list.rules += new_rules2
+		get_parent().rules += new_rules2
+		#new_list.rules.append("\n")
+		#new_list.rules += _randomize_rule()
+		print(get_parent().rules)
+		
+		get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+		
+		new_list.position = position
+		new_list.position.y -= 400
+		new_list.position.x -= 100
+		$RulesTimer.start(20)
+		
+	elif Singleton.day == 1:
+		
+		match sent_out:
+			0:
+				var new_list = rule_list.instance()
+				new_list.get_node("Sprite/RichTextLabel").text = "Good morning comrade librarian.\nCongratulations on your promotion to the Ministry for the Assignment of Literature."
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RulesTimer.start(5)
+				sent_out += 1
+			1:
+				var new_list = rule_list.instance()
+				new_list.get_node("Sprite/RichTextLabel").text = "Have you read the newspaper yet? The state provides the Ministry with a copy each morning. Please read it now, and consult it when necessary."
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RulesTimer.start(10)
+				sent_out += 1
+			2:
+				var new_list = rule_list.instance()
+				new_list.get_node("Sprite/RichTextLabel").text = "Did you read it? Great. Up next I will pass a book request to you. Please ensure that the request is not for anything currently banned or forbidden."
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RequestTimer.start(5)
+				sent_out += 1
+			4:
+				var new_list = rule_list.instance()
+				new_list.get_node("Sprite/RichTextLabel").text = "You can open the book by clicking on it."
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RulesTimer.start(5)
+				sent_out += 1
+			5:
+				var new_list = rule_list.instance()
+				new_list.get_node("Sprite/RichTextLabel").text = "Read the request and then stamp it with 'Approved' or 'Denied'. Place the request inside the book and hand it to the out-tray. Try to get it right."
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+			6:
+				var new_list = rule_list.instance()
+				new_list.get_node("Sprite/RichTextLabel").text = "Well done comrade librarian. The book is now on it's way to the citizen who requested it. Did you know you are allowed to listen to state broadcasting while working? Try the radio."
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RulesTimer.start(15)
+				sent_out += 1
+			7:
+				var new_list = rule_list.instance()
+				new_list.get_node("Sprite/RichTextLabel").text = "Throughout the day, new directives will come from the Citizen's Bureau. Certain authors, topics etc. will be blacklisted to circumvent anti-revolutionary sentiments."
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RulesTimer.start(10)
+				sent_out += 1
+			8:
+				var new_list = rule_list.instance()
+				
+				var new_rules = _randomize_rule()
+				new_list.rules += new_rules
+				get_parent().rules += new_rules
+				
+				var new_rules2 = _randomize_rule()
+				new_list.rules += new_rules2
+				get_parent().rules += new_rules2
+				
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RulesTimer.start(10)
+				sent_out += 1
+			9:
+				var new_list = rule_list.instance()
+				new_list.get_node("Sprite/RichTextLabel").text = "Please read the new rules carefully. Throughout the day, several new instructions will show up. Mind the coffee cup, don't spill on state property."
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RequestTimer.start(5)
+				sent_out += 1
+			11:
+				var new_list = rule_list.instance()
+				new_list.get_node("Sprite/RichTextLabel").text = "Looks like you can handle a desk job after all. Keep working on those requests until 18:00. I'll come pick you up when it's time to go home."
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RequestTimer.start(5)
+				sent_out += 1
+				
 func _on_RequestTimer_timeout():
 	
-	get_parent().total += 1
-	random_request = _randomize_request()
-	var new_book = book.instance()
-	var new_request = request.instance()
-	num_request += 1
-	new_book.ordered_num = num_request
-	new_request.ordered_num = num_request
-	new_request.info = random_request
-	new_book.attributes = random_request
-	get_parent().get_node("Papers, Please/YSort").add_child(new_book)
-	new_book.position = position
-	new_book.position.y -= 500
-	get_parent().get_node("Papers, Please/YSort").add_child(new_request)
-	new_request.position = position
-	new_request.position.y -= 400
-	new_request.position.x -= 100
-	$RequestTimer.start(15)
+	if Singleton.day != 1:
+		get_parent().total += 1
+		random_request = _randomize_request()
+		var new_book = book.instance()
+		var new_request = request.instance()
+		num_request += 1
+		new_book.ordered_num = num_request
+		new_request.ordered_num = num_request
+		new_request.info = random_request
+		new_book.attributes = random_request
+		get_parent().get_node("Papers, Please/YSort").add_child(new_book)
+		new_book.position = position
+		new_book.position.y -= 500
+		get_parent().get_node("Papers, Please/YSort").add_child(new_request)
+		new_request.position = position
+		new_request.position.y -= 400
+		new_request.position.x -= 100
+		$RequestTimer.start(15)
+		
+	elif Singleton.day == 1:
+		#sent_out += 1
+		
+		match sent_out:
+			3:
+				get_parent().total += 1
+				random_request = _randomize_request()
+				var new_book = book.instance()
+				var new_request = request.instance()
+				num_request += 1
+				new_book.ordered_num = num_request
+				new_request.ordered_num = num_request
+				new_request.info = random_request
+				new_book.attributes = random_request
+				get_parent().get_node("Papers, Please/YSort").add_child(new_book)
+				new_book.position = position
+				new_book.position.y -= 500
+				get_parent().get_node("Papers, Please/YSort").add_child(new_request)
+				new_request.position = position
+				new_request.position.y -= 400
+				new_request.position.x -= 100
+				$RulesTimer.start(5)
+				sent_out += 1
+			10:
+				get_parent().total += 1
+				random_request = _randomize_request()
+				var new_book = book.instance()
+				var new_request = request.instance()
+				num_request += 1
+				new_book.ordered_num = num_request
+				new_request.ordered_num = num_request
+				new_request.info = random_request
+				new_book.attributes = random_request
+				get_parent().get_node("Papers, Please/YSort").add_child(new_book)
+				new_book.position = position
+				new_book.position.y -= 500
+				get_parent().get_node("Papers, Please/YSort").add_child(new_request)
+				new_request.position = position
+				new_request.position.y -= 400
+				new_request.position.x -= 100
+				$RulesTimer.start(10)
+				sent_out += 1
+			12:
+				get_parent().total += 1
+				random_request = _randomize_request()
+				var new_book = book.instance()
+				var new_request = request.instance()
+				num_request += 1
+				new_book.ordered_num = num_request
+				new_request.ordered_num = num_request
+				new_request.info = random_request
+				new_book.attributes = random_request
+				get_parent().get_node("Papers, Please/YSort").add_child(new_book)
+				new_book.position = position
+				new_book.position.y -= 500
+				get_parent().get_node("Papers, Please/YSort").add_child(new_request)
+				new_request.position = position
+				new_request.position.y -= 400
+				new_request.position.x -= 100
+				$RequestTimer.start(15)
+				sent_out += 1
+			13:
+				get_parent().total += 1
+				random_request = _randomize_request()
+				var new_book = book.instance()
+				var new_request = request.instance()
+				num_request += 1
+				new_book.ordered_num = num_request
+				new_request.ordered_num = num_request
+				new_request.info = random_request
+				new_book.attributes = random_request
+				get_parent().get_node("Papers, Please/YSort").add_child(new_book)
+				new_book.position = position
+				new_book.position.y -= 500
+				get_parent().get_node("Papers, Please/YSort").add_child(new_request)
+				new_request.position = position
+				new_request.position.y -= 400
+				new_request.position.x -= 100
+				$RulesTimer.start(15)
+				sent_out += 1

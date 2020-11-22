@@ -6,6 +6,7 @@ var radio3 = preload("res://Assets/radio3.wav")
 var radio4 = preload("res://Assets/radio4.wav")
 
 func _on_RightButton_pressed():
+	randomize()
 	if get_parent().get_node("Papers, Please").selected == null:
 		
 		var rand = randi()%4 + 1

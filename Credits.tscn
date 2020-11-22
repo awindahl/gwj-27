@@ -25,7 +25,8 @@ bg_color = Color( 0.439216, 0.121569, 0.121569, 1 )
 bg_color = Color( 0.596078, 0.176471, 0.176471, 1 )
 
 [sub_resource type="DynamicFont" id=8]
-font_data = ExtResource( 2 )
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 2 )
@@ -129,6 +130,8 @@ custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 8 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.909804, 0.807843, 0.431373, 1 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false

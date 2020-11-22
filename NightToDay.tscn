@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/NightCity.png" type="Texture" id=1]
 [ext_resource path="res://Assets/DayCity.png" type="Texture" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://Mouse.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/NightToDay.gd" type="Script" id=6]
 [ext_resource path="res://Assets/clock.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/AlfaSlabOne-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Button.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Pushed.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Hover.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "transition"
@@ -52,22 +56,25 @@ tracks/2/keys = {
 size = 64
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.796078, 0.305882, 0.305882, 1 )
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 947, 309 )
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.439216, 0.121569, 0.121569, 1 )
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 947, 309 )
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.596078, 0.176471, 0.176471, 1 )
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 947, 309 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 32
-font_data = ExtResource( 3 )
+font_data = ExtResource( 8 )
 
 [node name="NightToDay" type="Node2D"]
 script = ExtResource( 6 )
@@ -78,6 +85,7 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 0.36, 0.36 )
 texture = ExtResource( 2 )
 centered = false
@@ -87,27 +95,33 @@ autoplay = "transition"
 anims/transition = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 144.0
 margin_top = 128.0
 margin_right = 184.0
 margin_bottom = 142.0
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.909804, 0.807843, 0.431373, 1 )
 text = "Day "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 814.0
+visible = false
+margin_left = 1015.0
 margin_top = 661.0
 margin_right = 1282.0
-margin_bottom = 703.0
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
+margin_bottom = 706.0
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
+custom_styles/normal = SubResource( 9 )
 custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.909804, 0.807843, 0.431373, 1 )
+custom_colors/font_color_hover = Color( 0.909804, 0.807843, 0.431373, 1 )
+custom_colors/font_color_pressed = Color( 0.909804, 0.807843, 0.431373, 1 )
 text = "Walk to Work"
 script = ExtResource( 4 )
 __meta__ = {
