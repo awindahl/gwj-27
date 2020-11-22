@@ -19,6 +19,8 @@ var bad_slip = preload("res://OfficeTools/BadSlip.tscn")
 
 func _rule_parse(object):
 	
+	$OutTray.send_away = false
+	
 	did_fuckup = false
 	no_fuckup = true
 	
@@ -29,15 +31,17 @@ func _rule_parse(object):
 			for rule in rules:
 				for attr in object.attributes:
 					if attr == rule and not did_fuckup:
-						print("You fucked up")
-						did_fuckup = true
-						fails += 1
 						did_good = false
 						
 						
 			if did_good:
 				print ("you did good")
 				successes += 1
+				$OutTray.send_away = true
+			else:
+				print("You fucked up")
+				fails += 1
+				$OutTray.send_away = true
 				
 			
 		elif object.approved == "Denied":
@@ -45,14 +49,16 @@ func _rule_parse(object):
 			for rule in rules:
 				for attr in object.attributes:
 					if attr == rule and no_fuckup:
-						no_fuckup = false
-						print("You did good")
-						successes += 1
 						did_bad = false
 						
 			if did_bad:
 				print("you did bad")
 				fails += 1
+				$OutTray.send_away = true
+			else:
+				print ("You did good")
+				successes += 1
+				$OutTray.send_away = true
 	else:
 		print("wrong request")
 		fails += 1

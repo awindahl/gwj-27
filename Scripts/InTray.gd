@@ -362,6 +362,24 @@ func _on_RulesTimer_timeout():
 				new_list.position.x -= 100
 				$RequestTimer.start(5)
 				sent_out += 1
+			14:
+				var new_list = rule_list.instance()
+				
+				var new_rules = _randomize_rule()
+				new_list.rules += new_rules
+				get_parent().rules += new_rules
+				
+				var new_rules2 = _randomize_rule()
+				new_list.rules += new_rules2
+				get_parent().rules += new_rules2
+				
+				get_parent().get_node("Papers, Please/YSort").add_child(new_list)
+				
+				new_list.position = position
+				new_list.position.y -= 400
+				new_list.position.x -= 100
+				$RequestTimer.start(10)
+				sent_out += 1
 				
 func _on_RequestTimer_timeout():
 	
@@ -462,5 +480,43 @@ func _on_RequestTimer_timeout():
 				new_request.position = position
 				new_request.position.y -= 400
 				new_request.position.x -= 100
-				$RulesTimer.start(15)
+				$RulesTimer.start(10)
+				sent_out += 1
+			15:
+				get_parent().total += 1
+				random_request = _randomize_request()
+				var new_book = book.instance()
+				var new_request = request.instance()
+				num_request += 1
+				new_book.ordered_num = num_request
+				new_request.ordered_num = num_request
+				new_request.info = random_request
+				new_book.attributes = random_request
+				get_parent().get_node("Papers, Please/YSort").add_child(new_book)
+				new_book.position = position
+				new_book.position.y -= 500
+				get_parent().get_node("Papers, Please/YSort").add_child(new_request)
+				new_request.position = position
+				new_request.position.y -= 400
+				new_request.position.x -= 100
+				$RequestTimer.start(15)
+				sent_out += 1
+			16:
+				get_parent().total += 1
+				random_request = _randomize_request()
+				var new_book = book.instance()
+				var new_request = request.instance()
+				num_request += 1
+				new_book.ordered_num = num_request
+				new_request.ordered_num = num_request
+				new_request.info = random_request
+				new_book.attributes = random_request
+				get_parent().get_node("Papers, Please/YSort").add_child(new_book)
+				new_book.position = position
+				new_book.position.y -= 500
+				get_parent().get_node("Papers, Please/YSort").add_child(new_request)
+				new_request.position = position
+				new_request.position.y -= 400
+				new_request.position.x -= 100
+				$RequestTimer.start(15)
 				sent_out += 1

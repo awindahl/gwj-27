@@ -130,8 +130,10 @@ custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 8 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_disabled = Color( 0.909804, 0.807843, 0.431373, 1 )
 custom_colors/font_color = Color( 0.909804, 0.807843, 0.431373, 1 )
+custom_colors/font_color_hover = Color( 0.909804, 0.807843, 0.431373, 1 )
+custom_colors/font_color_pressed = Color( 0.909804, 0.807843, 0.431373, 1 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -160,11 +162,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -103.0
-margin_top = -72.0
+margin_top = -96.0
 margin_right = 104.0
-margin_bottom = 8.0
+margin_bottom = 11.0
 custom_fonts/font = SubResource( 9 )
-text = "All music featured is in the Public Domain."
+text = "All music featured is in the Public Domain.
+Some sounds created by jomso"
 align = 1
 autowrap = true
 __meta__ = {

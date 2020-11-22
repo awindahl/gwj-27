@@ -7,6 +7,7 @@ var radio4 = preload("res://Assets/radio4.wav")
 
 func _on_RightButton_pressed():
 	randomize()
+	$Button.play()
 	if get_parent().get_node("Papers, Please").selected == null:
 		
 		var rand = randi()%4 + 1
@@ -26,3 +27,4 @@ func _on_RightButton_pressed():
 func _on_LeftButton_pressed():
 	if get_parent().get_node("Papers, Please").selected == null:
 		$Radio.stream = null
+		$Button.play()

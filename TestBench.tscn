@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://OfficeTools/StampBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://OfficeTools/CoffeeCup.tscn" type="PackedScene" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://Assets/Button.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Pushed.png" type="Texture" id=25]
 [ext_resource path="res://Assets/Hover.png" type="Texture" id=26]
+[ext_resource path="res://Assets/pickup_paper.wav" type="AudioStream" id=27]
+[ext_resource path="res://Assets/radio_button.wav" type="AudioStream" id=28]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -68,11 +70,11 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 22 )
 
-[sub_resource type="StyleBoxTexture" id=20]
+[sub_resource type="StyleBoxTexture" id=13]
 texture = ExtResource( 26 )
 region_rect = Rect2( 0, 0, 947, 309 )
 
-[sub_resource type="StyleBoxTexture" id=21]
+[sub_resource type="StyleBoxTexture" id=14]
 texture = ExtResource( 25 )
 region_rect = Rect2( 0, 0, 947, 309 )
 
@@ -80,7 +82,7 @@ region_rect = Rect2( 0, 0, 947, 309 )
 
 [sub_resource type="StyleBoxEmpty" id=16]
 
-[sub_resource type="StyleBoxTexture" id=22]
+[sub_resource type="StyleBoxTexture" id=17]
 texture = ExtResource( 24 )
 region_rect = Rect2( 0, 0, 947, 309 )
 
@@ -303,6 +305,9 @@ __meta__ = {
 
 [node name="Radio" type="AudioStreamPlayer" parent="Radio"]
 
+[node name="Button" type="AudioStreamPlayer" parent="Radio"]
+stream = ExtResource( 28 )
+
 [node name="OutTray" type="Node2D" parent="."]
 position = Vector2( 155, 107 )
 script = ExtResource( 7 )
@@ -380,6 +385,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Papers, Please/YSort/Map"]
 position = Vector2( 269, 254 )
 shape = SubResource( 4 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="Papers, Please/YSort/Map"]
+stream = ExtResource( 27 )
 
 [node name="NewsPaper" type="Area2D" parent="Papers, Please/YSort" groups=[
 "Documents",
@@ -483,6 +491,9 @@ __meta__ = {
 visible = false
 position = Vector2( 137, 251 )
 shape = SubResource( 9 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="Papers, Please/YSort/NewsPaper"]
+stream = ExtResource( 27 )
 
 [node name="Desk" type="Area2D" parent="Papers, Please" groups=[
 "Stampable",
@@ -676,11 +687,11 @@ margin_left = -101.0
 margin_top = 78.0
 margin_right = 145.0
 margin_bottom = 144.0
-custom_styles/hover = SubResource( 20 )
-custom_styles/pressed = SubResource( 21 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
 custom_styles/focus = SubResource( 15 )
 custom_styles/disabled = SubResource( 16 )
-custom_styles/normal = SubResource( 22 )
+custom_styles/normal = SubResource( 17 )
 custom_fonts/font = SubResource( 18 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0.909804, 0.807843, 0.431373, 1 )

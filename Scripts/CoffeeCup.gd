@@ -4,6 +4,7 @@ var last_pos = Vector2()
 var stain = preload ("res://OfficeTools/Stain.tscn")
 var attributes = []
 var moving = false
+var sound = preload("res://Assets/cup_sound.wav")
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -15,6 +16,10 @@ func _process(delta):
 	if Input.is_action_just_released("click") and get_parent().get_parent().selected == self:
 		$Timer.start()
 		moving = false
+		$Sound.stream = sound
+		$Sound.play()
+	elif not $Sound.playing:
+		$Sound.stream = null
 
 func _stamp():
 	var stamped_doc = get_top_doc()

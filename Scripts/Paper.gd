@@ -19,6 +19,7 @@ func _input(event):
 func _process(delta):
 	if $CollisionShape2D.disabled and not going_out:
 		position.y += 3
+		$Spawn.play()
 	
 	if position.y > 40 and not in_book:
 		$CollisionShape2D.disabled = false

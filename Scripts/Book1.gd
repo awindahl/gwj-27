@@ -65,6 +65,7 @@ func _process(delta):
 func _on_Button_button_up():
 	if closed_pos == position and status == -1 and get_parent().get_parent().selected == self:
 		$Sprite.texture = open_sprite
+		$Open.play()
 		$CollisionShape2D.get_shape().extents.x = 220
 		$Button.rect_position.x = -220
 		$Button.rect_size.x = 440
@@ -77,6 +78,7 @@ func _on_Button_button_up():
 	
 	elif closed_pos == position and status == 1 and get_parent().get_parent().selected == self:
 		$Sprite.texture = closed_sprite
+		$Open.play()
 		$CollisionShape2D.get_shape().extents.x = 110
 		$Button.rect_position.x = -110
 		$Button.rect_size.x = 220

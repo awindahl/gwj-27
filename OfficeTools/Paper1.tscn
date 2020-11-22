@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Paper.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Stationary MKIII.png" type="Texture" id=2]
 [ext_resource path="res://Assets/CourierPrime-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/pickup_paper.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/rule_sound.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -71,3 +73,9 @@ collision_mask = 262144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drop"]
 shape = SubResource( 3 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Spawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

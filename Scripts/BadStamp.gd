@@ -56,4 +56,5 @@ func get_top_doc() -> Area2D:
 
 
 func _on_Button_pressed():
+	$Sound.play()
 	$AnimationPlayer.play("Stamp")

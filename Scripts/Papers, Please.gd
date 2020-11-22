@@ -12,6 +12,7 @@ func _input(event):
 				selected = select_piece()
 				if get_tree().get_nodes_in_group("dragged").empty() and selected != null and not get_parent().is_holding:
 					selected.add_to_group("dragged")
+					selected.get_node_or_null("Sound").play()
 					can_grab = true
 					ev_pos = selected.position - get_global_mouse_position()
 		elif can_grab and selected != null:
